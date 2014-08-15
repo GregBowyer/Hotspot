@@ -159,12 +159,13 @@ VMError::VMError(const char* message) {
 
 // -XX:OnError=<string>, where <string> can be a list of commands, separated
 // by ';'. "%p" is replaced by current process id (pid); "%%" is replaced by
-// a single "%". Some examples:
+// a single "%"; %s is replaced by a space. Some examples:
 //
 // -XX:OnError="pmap %p"                // show memory map
 // -XX:OnError="gcore %p; dbx - %p"     // dump core and launch debugger
 // -XX:OnError="cat hs_err_pid%p.log | mail my_email@sun.com"
 // -XX:OnError="kill -9 %p"             // ?#!@#
+// -XX:OnError="kill%s-9%s%p"           // ?#!@#%s?#!@#%s?#!@#
 
 // A simple parser for -XX:OnError, usage:
 //  ptr = OnError;
