@@ -3425,6 +3425,9 @@ bool Arguments::copy_expand_pid(const char* src, size_t srclen,
         p++;
         break;
       }
+      case 's':          // '%s' ==> ' '
+        *b++ = ' '
+        break;
       default :
         *b++ = '%';
       }
